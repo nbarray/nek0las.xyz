@@ -23,3 +23,6 @@ export const CSSGridLink = props => <ELink href='https://css-tricks.com/snippets
 export const FlexboxLink = props => <ELink href='https://css-tricks.com/snippets/css/a-guide-to-flexbox/'>Flexbox</ELink>
 export const UnityLink = props => <ELink href='https://unity3d.com/fr'>Unity</ELink>
 export const HaxeLink = props => <ELink href='https://haxe.org/'>Haxe</ELink>
+export const MyTwitterLink = props => <ELink href="https://twitter.com/nek0las">@nek0las</ELink>
+export const MyGithubLink = props => <ELink href="https://github.com/nbarray">Github</ELink>
+export const MyItchIoLink = props => <ELink href="https://nekolas.itch.io/">Itch.io</ELink>

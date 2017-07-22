@@ -4,11 +4,11 @@ import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom'
 
 import nek0las from '../images/nek0las.png'
 
-import ELink from './components/ELink'
-
 import Home from './Home'
 import Comics from './Comics'
 import Projects from './Projects'
+
+import { MyGithubLink, MyTwitterLink, MyItchIoLink } from './components/ELink'
 
 const Page = styled.div`
   display: grid;
@@ -39,6 +39,10 @@ const Header = styled.div`
 
   display: flex;
   flex-flow: column nowrap;
+
+  @media screen and (max-width: 900px) {
+    align-items: center;
+  }
 `
 
 const Article = styled.div`
@@ -63,6 +67,10 @@ const Menu = styled.aside`
 
   display: flex;
   flex-flow: column;
+
+  @media screen and (max-width: 900px) {
+    align-items: center;
+  }
 `
 
 const MenuItem = styled(Link)`
@@ -113,15 +121,15 @@ class App extends Component {
           </Menu>
           <Article>
             <Switch>
+              <Route exact path={'/projects/'} component={Projects} />
+              <Route exact path={'/comics/'} component={Comics} />
               <Route exact path={'/'} component={Home} />
-              <Route exact path={'/comics'} component={Comics} />
-              <Route exact path={'/projects'} component={Projects} />
             </Switch>
           </Article>
           <Footer>
-            <ELink href="https://twitter.com/nek0las">@nek0las</ELink>
-            <ELink href="https://github.com/nbarray">Github</ELink>
-            <ELink href="https://nekolas.itch.io/">Itch.io</ELink>
+            <MyTwitterLink />
+            <MyGithubLink />
+            <MyItchIoLink />
           </Footer>
         </Page>
       </Router>
