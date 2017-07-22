@@ -15,12 +15,7 @@ export default () =>
       {'BD'}
     </Subtitle>
     <Paragraph>
-      {"Des BD faitent quand l'inspiration me prend. "}
-      {'Les sujets abordés (mais pas que):'}
-      <ul>
-        <li>Mon entourage</li>
-        <li>Des pensées libres</li>
-      </ul>
+      {"Des BD faites quand l'inspiration me prend. J'en profite pour améliorer mes compétences en infographie. "}
       {'En espérant que ca vous diverti :)'}
     </Paragraph>
     <Subtitle>
@@ -31,12 +26,12 @@ export default () =>
       {'Les thèmes abordés:'}
       <ul>
         <li>
-          Développement frontend avec <ReactLink />,{' '}
-          <ReduxLink />,{' '}
-          <StyledComponentLink />
+          Développement frontend avec <ReactLink />, <ReduxLink />, <StyledComponentLink />
           {", et plein d'autres bibliothèques."}
         </li>
-        <li>Des jeux vidéos développés avec <UnityLink /> ou en <HaxeLink />.</li>
+        <li>
+          Des jeux vidéos développés avec <UnityLink /> ou en <HaxeLink />.
+        </li>
       </ul>
     </Paragraph>
     <Subtitle>

@@ -95,8 +95,8 @@ class App extends Component {
           </Header>
           <Menu>
             <MenuItem to={'/'} active={true}>Home</MenuItem>
-            <MenuItem to={'/comics'}>Comics</MenuItem>
-            <MenuItem to={'/projects'}>Projects</MenuItem>
+            <MenuItem to={'/comics'}>BD</MenuItem>
+            <MenuItem to={'/projects'}>Projets</MenuItem>
           </Menu>
           <Article>
             <Switch>
