@@ -13,8 +13,8 @@ export default () =>
     <Title>Projets Informatiques</Title>
     <Subtitle>nek0las.xyz</Subtitle>
     <Paragraph>
-      Le site que vous visitez est ma plateforme pour partager mon travail et mes passions. Il est réaliser avec un
-      stack javascript autour de <ReactLink />. Le style est réaliser à base de <StyledComponentLink />, <CSSGridLink />{' '}
+      Le site que vous visitez et ma plateforme pour partager mon travail et mes passions. Il est réalisé avec une
+      stack javascript autour de <ReactLink />. La mise en page est faite à base de <StyledComponentLink />, <CSSGridLink />{' '}
       et <FlexboxLink />.
     </Paragraph>
   </Page>

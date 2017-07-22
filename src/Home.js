@@ -22,7 +22,7 @@ export default () =>
       {'Projets'}
     </Subtitle>
     <Paragraph>
-      {'Des projects sur lesquels je travaille. '}
+      {'Des projets sur lesquels je travaille. '}
       {'Les thèmes abordés:'}
       <ul>
         <li>
