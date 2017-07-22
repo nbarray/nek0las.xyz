@@ -94,7 +94,7 @@ class App extends Component {
             <Subtitle>Bienvenue sur ma page personnelle en ligne!</Subtitle>
           </Header>
           <Menu>
-            <MenuItem to={'/'} active={true}>Home</MenuItem>
+            <MenuItem to={'/'}>Home</MenuItem>
             <MenuItem to={'/comics'}>BD</MenuItem>
             <MenuItem to={'/projects'}>Projets</MenuItem>
           </Menu>
