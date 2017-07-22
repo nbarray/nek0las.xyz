@@ -12,9 +12,20 @@ import Projects from './Projects'
 
 const Page = styled.div`
   display: grid;
+
   grid-template-areas: "Logo Header  Header" "Menu   Article ." "Footer Footer  Footer";
   grid-template-columns: 300px 1fr 200px;
   grid-template-rows: 200px 1fr 100px;
+
+  @media screen and (max-width: 900px) {
+    grid-template-areas: "Header"
+                         "Logo"
+                         "Menu"
+                         "Article"
+                         "Footer";
+    grid-template-columns: auto;
+    grid-template-rows: 150px 150px 300px auto 50px;
+  }
 `
 
 const Logo = styled.img`
@@ -34,8 +45,10 @@ const Article = styled.div`
   grid-area: Article;
 
   min-height: calc(100vh - 300px);
+  @media screen and (min-width: 900px) {
+    max-width: calc(100vw - 500px);
+  }
   width: 100%;
-  max-width: calc(100vw - 500px);
 `
 
 const Footer = styled.div`
@@ -53,7 +66,7 @@ const Menu = styled.aside`
 `
 
 const MenuItem = styled(Link)`
-  margin-top: 32px;
+  margin-top: 8px;
   margin-left: 16px;
 
   text-decoration: none;
