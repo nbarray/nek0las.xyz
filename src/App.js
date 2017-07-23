@@ -116,14 +116,15 @@ class App extends Component {
           </Header>
           <Menu>
             <MenuItem to={'/'}>Home</MenuItem>
-            <MenuItem to={'/comics'}>BD</MenuItem>
+            <MenuItem to={'/comics/1'}>BD</MenuItem>
             <MenuItem to={'/projects'}>Projets</MenuItem>
           </Menu>
           <Article>
             <Switch>
               <Route exact path={'/projects/'} component={Projects} />
-              <Route exact path={'/comics/'} component={Comics} />
               <Route exact path={'/'} component={Home} />
+              <Route path={'/comics/:id'} component={Comics} />
+              <Route exact path={'/comics/'} component={Comics} />
             </Switch>
           </Article>
           <Footer>
