@@ -6,30 +6,28 @@ import Subtitle from './components/Subtitle'
 import Paragraph from './components/Paragraph'
 import { ReactLink, StyledComponentLink, FlexboxLink, CSSGridLink } from './components/ELink'
 
+import { i18n } from './i18n'
+
 const Page = styled.div`margin-left: 16px;`
 
 export default () =>
   <Page>
-    <Title>Projets Informatiques</Title>
+    <Title>
+      {i18n('Projects_Current')}
+    </Title>
     <Subtitle>nek0las.xyz</Subtitle>
     <Paragraph>
-      Vous êtes dessus! {"C'est"} Ma plateforme pour partager mon travail et mes passions.
+      {i18n('nek0las.xyz_What')}
     </Paragraph>
     <Paragraph>
-      Il est réalisé avec une stack javascript autour de <ReactLink />. La mise en page est faite à base de{' '}
-      <StyledComponentLink />, <CSSGridLink /> et <FlexboxLink />.
+      {i18n('nek0las.xyz_Stack_1')} <ReactLink />. {i18n('nek0las.xyz_Stack_2')} <StyledComponentLink />, <CSSGridLink />, <FlexboxLink />.
     </Paragraph>
     <Subtitle>k2s0</Subtitle>
     <Paragraph>
-      {`C'est un service d'organisation. Il permet de tenir une liste de taches à accomplir,
-        d'obtenir des rappels quotidients. Il permettera à terme de gérer mes listes de courses,
-        tenir compte d'informations provenants de capteurs domotiques ou corporels (Android Watch),
-        et plusieurs autres fonctionnalitées.
-      `}
+      {i18n('k2s0_What')}
     </Paragraph>
 
     <Paragraph>
-      {`Il est réalisé avec la même stack que nek0las.xyz, c'est-à-dire `}
-      <ReactLink /> {" et tout l'écosystème qui tourne autour."}
+      {i18n('nek0las.xyz_Stack_1')} <ReactLink />.
     </Paragraph>
   </Page>

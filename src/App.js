@@ -1,14 +1,20 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
-import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom'
 
 import nek0las from '../images/nek0las.png'
 
 import Home from './Home'
 import Comics from './Comics'
 import Projects from './Projects'
+import Header from './Header'
 
 import { MyGithubLink, MyTwitterLink, MyItchIoLink } from './components/ELink'
+import MenuLink from './components/MenuLink'
+
+import i18nSetup, { Internationalization } from './i18n'
+
+i18nSetup()
 
 const Page = styled.div`
   display: grid;
@@ -20,7 +26,7 @@ const Page = styled.div`
   @media screen and (max-width: 900px) {
     grid-template-areas: "Header" "Logo" "Menu" "Article" "Footer";
     grid-template-columns: auto;
-    grid-template-rows: 150px 150px 300px auto 50px;
+    grid-template-rows: 200px 200px 200px auto 50px;
   }
 `
 
@@ -30,15 +36,8 @@ const Logo = styled.img`
   justify-self: center;
 `
 
-const Header = styled.div`
+const AppHeader = styled(Header)`
   grid-area: Header;
-
-  display: flex;
-  flex-flow: column nowrap;
-
-  @media screen and (max-width: 900px) {
-    align-items: center;
-  }
 `
 
 const Article = styled.div`
@@ -69,62 +68,40 @@ const Menu = styled.aside`
   }
 `
 
-const MenuItem = styled(Link)`
-  margin-top: 8px;
-  margin-left: 16px;
-
-  text-decoration: none;
-  color: ${props => (props.active ? 'rgb(0, 0, 0)' : 'rgb(75, 75, 75)')};
-
-  font-family: 'Pacifico', cursive;
-  font-size: 32px;
-
-  :hover {
-    text-shadow: 2px 4px 2px rgba(41, 41, 41, 0.64);
-  }
-`
-
-const Title = styled.span`
-  margin-top: 64px;
-  font-size: 2em;
-  font-family: 'Chewy', cursive;
-`
-
-const Subtitle = styled.span`
-  font-size: 1em;
-  font-family: 'Pacifico', cursive;
-  color: rgb(73, 73, 73);
-`
-
 class App extends Component {
   render() {
     return (
       <Router>
-        <Page>
-          <Logo src={nek0las} alt="My profil picture" />
-          <Header>
-            <Title>nek0las.xyz</Title>
-            <Subtitle>Bienvenue sur ma page personnelle en ligne!</Subtitle>
-          </Header>
-          <Menu>
-            <MenuItem to={'/'}>Home</MenuItem>
-            <MenuItem to={'/comics/1'}>BD</MenuItem>
-            <MenuItem to={'/projects'}>Projets</MenuItem>
-          </Menu>
-          <Article>
-            <Switch>
-              <Route exact path={'/projects/'} component={Projects} />
-              <Route exact path={'/'} component={Home} />
-              <Route path={'/comics/:id'} component={Comics} />
-              <Route exact path={'/comics/'} component={Comics} />
-            </Switch>
-          </Article>
-          <Footer>
-            <MyTwitterLink />
-            <MyGithubLink />
-            <MyItchIoLink />
-          </Footer>
-        </Page>
+        <Internationalization>
+          <Page>
+            <Logo src={nek0las} alt="My profil picture" />
+            <AppHeader />
+            <Menu>
+              <MenuLink to={'comics/1'} label={'Comics'} />
+              <MenuLink to={'projects'} label={'Projects'} />
+              <MenuLink to={'about'} label={'About'} />
+            </Menu>
+            <Article>
+              <Switch>
+                <Route path={'/:lang/comics/:id'} component={Comics} />
+                <Route exact path={'/:lang/comics/'} component={Comics} />
+                <Route exact path={'/:lang/projects/'} component={Projects} />
+                <Route exact path={'/:lang/about'} component={Home} />
+                <Route
+                  path={'/'}
+                  component={props => {
+                    return <Redirect to={`/${props.match.params.lang || 'en'}/comics/`} />
+                  }}
+                />
+              </Switch>
+            </Article>
+            <Footer>
+              <MyTwitterLink />
+              <MyGithubLink />
+              <MyItchIoLink />
+            </Footer>
+          </Page>
+        </Internationalization>
       </Router>
     )
   }

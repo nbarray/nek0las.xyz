@@ -6,51 +6,53 @@ import Subtitle from './components/Subtitle'
 import Paragraph from './components/Paragraph'
 import { ReactLink, ReduxLink, StyledComponentLink, UnityLink, HaxeLink } from './components/ELink'
 
+import { i18n } from './i18n'
+
 const Page = styled.div`margin-left: 16px;`
 
 export default () =>
   <Page>
-    <Title>Que peux-tu trouver sur ce site ?</Title>
+    <Title>
+      {i18n('About_Title')}
+    </Title>
     <Subtitle>
-      {'BD'}
+      {i18n('Comics')}
     </Subtitle>
     <Paragraph>
-      {"Des BD faites quand l'inspiration me prend. J'en profite pour améliorer mes compétences en infographie. "}
-      {'En espérant que ca vous diverti :)'}
+      {i18n('Comics_What')}
     </Paragraph>
     <Subtitle>
-      {'Projets'}
+      {i18n('Projects')}
     </Subtitle>
     <Paragraph>
-      {'Des projets sur lesquels je travaille. '}
-      {'Les thèmes abordés:'}
+      {i18n('Projects_What')}
       <ul>
         <li>
-          Développement frontend avec <ReactLink />, <ReduxLink />, <StyledComponentLink />
-          {", et plein d'autres bibliothèques."}
+          {i18n('Projects_What_Front_1')} <ReactLink />, <ReduxLink />, <StyledComponentLink />
+          {i18n('Projects_What_Front_2')}
         </li>
         <li>
-          Des jeux vidéos développés avec <UnityLink /> ou en <HaxeLink />.
+          {i18n('Projects_What_Games')} <UnityLink />, <HaxeLink />.
         </li>
       </ul>
     </Paragraph>
     <Subtitle>
-      {'Et après?'}
+      {i18n('After')}
     </Subtitle>
     <Paragraph>
-      {"Ce n'est que la première version de ce site, je compte à terme proposer:"}
+      {i18n('After_What')}
       <ul>
         <li>
-          {'Des articles techniques'}
+          {i18n('After_What_1')}
         </li>
         <li>
-          {'Des tutoriaux & présentations'}
+          {i18n('After_What_2')}
         </li>
         <li>
-          {'Des devlogs'}
+          {i18n('After_What_3')}
         </li>
         <li>
-          {'Des dessins & plus de BD'}
+          {i18n('After_What_4')}
         </li>
       </ul>
     </Paragraph>
