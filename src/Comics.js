@@ -12,7 +12,7 @@ const Comics = styled.div`
   display: grid;
   grid-template-areas: "Back Current Next" "Comic Comic Comic";
   grid-template-columns: 1/3fr 1/3fr 1/3fr;
-  grid-template-rows: 50px auto;
+  grid-template-rows: 100px auto;
 `
 
 const Back = styled(Link)`
@@ -20,6 +20,13 @@ const Back = styled(Link)`
   justify-self: end;
   text-decoration: none;
   color: black;
+
+  font-family: 'Pacifico', cursive;
+  font-size: 32px;
+
+  :hover {
+    text-shadow: 2px 4px 2px rgba(41, 41, 41, 0.64);
+  }
 `
 const Current = styled.div`
   grid-area: Current;
@@ -30,6 +37,13 @@ const Next = styled(Link)`
   justify-self: start;
   text-decoration: none;
   color: black;
+
+  font-family: 'Pacifico', cursive;
+  font-size: 32px;
+
+  :hover {
+    text-shadow: 2px 4px 2px rgba(41, 41, 41, 0.64);
+  }
 `
 const Comic = styled.img`
   grid-area: Comic;
@@ -40,10 +54,14 @@ const ComicId = styled(Link)`
   margin-left: 8px;
   margin-right: 8px;
 
-  font-size: ${props => (props.selected ? '24px' : '16px')};
-  font-family: 'Chewy', cursive;
+  font-size: ${props => (props.selected ? '42px' : '32px')};
   text-decoration: none;
   color: black;
+
+  font-family: 'Pacifico', cursive;
+  :hover {
+    text-shadow: 2px 4px 2px rgba(41, 41, 41, 0.64);
+  }
 `
 
 const isInvalidComicId = id => id === undefined || id <= 0 || id > comicsCount

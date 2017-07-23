@@ -18,11 +18,7 @@ const Page = styled.div`
   grid-template-rows: 200px 1fr 100px;
 
   @media screen and (max-width: 900px) {
-    grid-template-areas: "Header"
-                         "Logo"
-                         "Menu"
-                         "Article"
-                         "Footer";
+    grid-template-areas: "Header" "Logo" "Menu" "Article" "Footer";
     grid-template-columns: auto;
     grid-template-rows: 150px 150px 300px auto 50px;
   }
@@ -90,19 +86,15 @@ const MenuItem = styled(Link)`
 
 const Title = styled.span`
   margin-top: 64px;
-  margin-left: 32px;
   font-size: 2em;
   font-family: 'Chewy', cursive;
 `
 
 const Subtitle = styled.span`
-
-  margin-left: 32px;
   font-size: 1em;
   font-family: 'Pacifico', cursive;
   color: rgb(73, 73, 73);
 `
-
 
 class App extends Component {
   render() {
