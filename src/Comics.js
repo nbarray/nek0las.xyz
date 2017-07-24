@@ -5,18 +5,17 @@ import range from 'lodash/range'
 
 import Title from './components/Title'
 
-const comicsCount = 1
+const comicsCount = 2
 
 const comicsNames = {
-  1: "Slack Games"
+  1: 'Slack Games',
+  2: 'No idea'
 }
 
 const Comics = styled.div`
   width: 100%;
   display: grid;
-  grid-template-areas: "Back Current Next"
-                       "Title Title Title"
-                       "Comic Comic Comic";
+  grid-template-areas: "Back Current Next" "Title Title Title" "Comic Comic Comic";
   grid-template-columns: 1/3fr 1/3fr 1/3fr;
   grid-template-rows: 100px 100px auto;
 `
@@ -76,17 +75,27 @@ const ComicId = styled(Link)`
   }
 `
 
-const isInvalidComicId = id => id === undefined || id <= 0 || id > comicsCount
+const isInvalidComicId = id => {
+  return id === undefined || id <= 0 || id > comicsCount
+}
 
 const imageToDisplay = (id, lang) => {
   return require(`../images/comic-${id}-${lang}.png`)
 }
 
 export default withRouter(({ location, match }) => {
-  const comicId = match.params.id || comicsCount
+  const comicId = +match.params.id || +comicsCount
+  const lang = location.pathname.split('/')[1]
+
+  if (isInvalidComicId(comicId)) {
+    return <Redirect to={`/${lang}/comics/${comicsCount}`} />
+  }
+
+  const prevId = comicId > 1 ? comicId - 1 : comicId
+  const nextId = comicId < comicsCount ? comicId + 1 : comicId
   const comicsCounts = range(1, comicsCount + 1).map(id => {
     return (
-      <ComicId key={id} selected={id === +comicId} to={`/comics/${id}`}>
+      <ComicId key={id} selected={id === +comicId} to={`/${lang}/comics/${id}`}>
         {id}
       </ComicId>
     )
@@ -94,18 +103,19 @@ export default withRouter(({ location, match }) => {
 
   return (
     <Comics>
-      {isInvalidComicId(comicId) && <Redirect to={`/comics/${comicsCount}`} />}
-      <Back to={`/comics/${comicId - 1}`}>
+      <Back to={`/${lang}/comics/${prevId}`}>
         {'<'}
       </Back>
       <Current>
         {comicsCounts}
       </Current>
-      <Next to={`/comics/${comicId + 1}`}>
+      <Next to={`/${lang}/comics/${nextId}`}>
         {'>'}
       </Next>
-      <ComicTitle>{comicsNames[+comicId]}</ComicTitle>
-      <Comic src={imageToDisplay(comicId, location.pathname.split('/')[1])} alt="My first comic" />
+      <ComicTitle>
+        {comicsNames[+comicId]}
+      </ComicTitle>
+      <Comic src={imageToDisplay(comicId, lang)} alt="The comic" />
     </Comics>
   )
 })
