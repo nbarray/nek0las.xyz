@@ -17,9 +17,9 @@ import i18nSetup, { Internationalization } from './i18n'
 i18nSetup()
 
 const Page = styled.div`
-  display: grid;
+  display: inline-grid;
 
-  grid-template-areas: "Logo Header  Header" "Menu   Article ." "Footer Footer  Footer";
+  grid-template-areas: "Logo Header Header" "Menu Article ." ". Footer .";
   grid-template-columns: 300px 1fr 200px;
   grid-template-rows: 200px 1fr 100px;
 
