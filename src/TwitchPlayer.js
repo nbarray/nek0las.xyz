@@ -1,6 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 
+import { i18n } from './i18n'
+
 const Frame = styled.div`
   width: 400px;
   height: 50px;
@@ -60,7 +62,7 @@ class TwitchPlayer extends React.Component {
               this.switchPlayer(false)
             }}
             switchOn={true}>
-            Hide
+            {i18n('Hide')}
           </Button>
           <iframe
             src="http://player.twitch.tv/?channel=nek0las"
@@ -81,7 +83,7 @@ class TwitchPlayer extends React.Component {
             this.switchPlayer(true)
           }}
           switchOn={false}>
-          Open
+          {i18n('Open')}
         </Button>
         Twitch Stream
       </Frame>

@@ -1,4 +1,4 @@
-import { withRouter } from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
 
 let dict = {
   fr: {},
@@ -28,8 +28,7 @@ const trad = (key, valueFr, valueEn) => {
 }
 
 export const Internationalization = withRouter(props => {
-  const lang = props.location.pathname.split('/')[1] || 'en'
-  setLang(lang)
+  setLang(props.location.pathname.split('/')[1] || 'en')
   return props.children
 })
 
@@ -84,4 +83,8 @@ export default () => {
     "C'est une application pour organiser mon quotidien. Il permet de tenir une liste de taches à accomplir, d'obtenir des rappels quotidients.",
     "It's a productivity app to managing my everyday life. I can keep track of daily tasks by getting reminders."
   )
+
+  // TwitchPlayer.js
+  trad('Hide', 'Fermer', 'Hide')
+  trad('Open', 'Ouvrir', 'Open')
 }
