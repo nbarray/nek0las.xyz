@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { withRouter, Redirect, Link } from 'react-router-dom'
 import range from 'lodash/range'
 
-import Title from './components/Title'
+import Title from '../components/Title'
 
 const comicsCount = 2
 
@@ -80,7 +80,7 @@ const isInvalidComicId = id => {
 }
 
 const imageToDisplay = (id, lang) => {
-  return require(`../images/comic-${id}-${lang}.png`)
+  return require(`../../images/comic-${id}-${lang}.png`)
 }
 
 export default withRouter(({ location, match }) => {

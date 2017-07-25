@@ -1,12 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import Title from './components/Title'
-import Subtitle from './components/Subtitle'
-import Paragraph from './components/Paragraph'
-import { ReactLink, ReduxLink, StyledComponentLink, UnityLink, HaxeLink } from './components/ELink'
+import Title from '../components/Title'
+import Subtitle from '../components/Subtitle'
+import Paragraph from '../components/Paragraph'
+import { ReactLink, ReduxLink, StyledComponentLink, UnityLink, HaxeLink } from '../components/ELink'
 
-import { i18n } from './i18n'
+import { i18n } from '../i18n'
 
 const Page = styled.div`margin-left: 16px;`
 
