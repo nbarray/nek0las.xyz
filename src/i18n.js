@@ -50,7 +50,7 @@ export default () => {
   )
   trad(
     'Projects_What',
-    'Des projets sur lesquels je travaille. Les thèmes abordées:',
+    'Des projets sur lesquels je travaille. Les thèmes abordés:',
     'Projects I am working on, or used to work on. Addressed themes:'
   )
   trad('Projects_What_Front_1', 'Développement frontend avec', 'Frontend development with')
@@ -81,7 +81,7 @@ export default () => {
   trad('nek0las.xyz_Stack_2', 'La mise en page est faite à base de', 'The style is done with')
   trad(
     'k2s0_What',
-    "C'est une application pour organiser mon quotidient. Il permet de tenir une liste de taches à accomplir, d'obtenir des rappels quotidients.",
+    "C'est une application pour organiser mon quotidien. Il permet de tenir une liste de taches à accomplir, d'obtenir des rappels quotidients.",
     "It's a productivity app to managing my everyday life. I can keep track of daily tasks by getting reminders."
   )
 }
