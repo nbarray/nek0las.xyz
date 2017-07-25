@@ -20,8 +20,8 @@ i18nSetup()
 const Page = styled.div`
   display: inline-grid;
 
-  grid-template-areas: "Logo Header Feature" "Menu Article ." ". Footer .";
-  grid-template-columns: 300px 1fr 200px;
+  grid-template-areas: "Logo Header Temporary ." "Menu Article Article ." ". Footer Footer .";
+  grid-template-columns: 300px auto auto 200px;
   grid-template-rows: 200px 1fr 100px;
 
   @media screen and (max-width: 900px) {
@@ -70,14 +70,13 @@ const Menu = styled.aside`
 `
 
 const TempFeature = styled.div`
+  grid-area: Temporary;
   @media screen and (max-width: 900px) {
-    grid-area: Temporary;
-    justify-self: center;
+    justify-self: stretch;
   }
   @media screen and (min-width: 901px) {
-    position: fixed;
-    top: 0;
-    right: 0;
+    width: 400px;
+    height: 100%;
   }
 `
 

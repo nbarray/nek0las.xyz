@@ -3,43 +3,40 @@ import styled from 'styled-components'
 
 import { i18n } from './i18n'
 
-const Frame = styled.div`
-  width: 400px;
+const ClosedFrame = styled.div`
   height: 50px;
-  padding-right: 32px;
-
-  background: black;
-  color: rgb(138, 82, 168);
-
-  font-family: "Permanent Marker", cursive;
-
-  line-height: 50px;
-  text-align: center;
-  font-size: 32px;
 
   display: flex;
+  align-items: center;
   justify-content: space-between;
+
+  background: black;
 `
 
-const Player = styled.div`
-  width: 400px;
-  height: 300px;
+const Label = styled.span`
+  padding-right: 16px;
 
-  overflow: hidden;
+  color: rgb(138, 82, 168);
+  font-family: "Permanent Marker", cursive;
+  font-size: 24px;
+`
+
+const VideoScreen = styled.iframe`
+  width: 100%;
+  height: 300px;
 `
 
 const Button = styled.button`
   position: ${props => (props.switchOn ? 'absolute' : 'static')};
   height: 50px;
-  width: 50px;
 
   background: transparent;
   border: 0px;
+
   color: ${props => (props.switchOn ? 'grey' : 'white')};
   font-style: bold;
-
   font-family: "Permanent Marker", cursive;
-  font-size: 24px;
+  font-size: ${props => (props.switchOn ? 18 : 24)}px;
 `
 
 class TwitchPlayer extends React.Component {
@@ -55,7 +52,7 @@ class TwitchPlayer extends React.Component {
     const { activate } = this.props
     if (activate && this.state.switchOn) {
       return (
-        <Player>
+        <div>
           <Button
             onClick={e => {
               e.preventDefault()
@@ -64,19 +61,17 @@ class TwitchPlayer extends React.Component {
             switchOn={true}>
             {i18n('Hide')}
           </Button>
-          <iframe
+          <VideoScreen
             src="http://player.twitch.tv/?channel=nek0las"
-            height="300px"
-            width="400px"
             frameBorder="0"
             scrolling="no"
             allowFullScreen="true"
           />
-        </Player>
+        </div>
       )
     }
     return (
-      <Frame>
+      <ClosedFrame>
         <Button
           onClick={e => {
             e.preventDefault()
@@ -85,8 +80,8 @@ class TwitchPlayer extends React.Component {
           switchOn={false}>
           {i18n('Open')}
         </Button>
-        Twitch Stream
-      </Frame>
+        <Label>Twitch Stream</Label>
+      </ClosedFrame>
     )
   }
 }
